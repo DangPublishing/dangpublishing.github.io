@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dang Publishing: AI films, music and the free tools behind them.">
+<title>Dang Publishing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
+<script>
+/* ==========================================================================
+   EDIT YOUR LINKS HERE — everything on the page is built from this list.
+
+   To add a link: copy an existing { ... } item, paste it inside the right
+   section's items: [ ... ], and change the words. Keep the commas between items.
+
+   Item fields:
+     title  - the name shown on the card (required)
+     url    - where the card goes (required, starts with https://)
+     text   - one or two sentences about it (optional)
+     tags   - small labels, e.g. ['Music', 'Free']  (optional)
+     youtube- for a YouTube video, the video ID (the part after watch?v=).
+              The card then shows the video's thumbnail and links to it,
+              so you can leave url out.
+     date   - optional, e.g. '2026-09-26'. Newer items show first in that section.
+
+   To add a whole new section: copy a { id: ..., title: ..., items: [ ] } block.
+   A section with no items shows "Coming soon."
+   ========================================================================== */
+window.SITE = {
+  name: 'Dang Publishing',
+  tagline: 'AI films, music and the free tools behind them.',
+  channel: { label: 'Dang on YouTube', url: '' },   // paste your channel link between the quotes to show the button
+
+  sections: [
+    {
+      id: 'tools',
+      title: 'Free tools',
+      blurb: 'They run in your browser. Nothing to install, and your files stay on your computer.',
+      items: [
+        {
+          title: 'Clip Compare',
+          url: 'https://dangpublishing.github.io/video-compare/',
+          text: 'Put two video clips on one playhead: drag a wipe between them, view them side by side or flip A/B, step frame by frame, and measure which one holds more detail.',
+          tags: ['Video', 'Browser tool']
+        },
+        {
+          title: 'ABC Score Viewer',
+          url: 'https://dangpublishing.github.io/abc-viewer/',
+          text: 'Paste ABC notation and read it as sheet music, with lyrics under the melody. Transpose it and print it.',
+          tags: ['Music', 'Browser tool']
+        }
+      ]
+    },
+    {
+      id: 'workflows',
+      title: 'RunningHub workflows',
+      blurb: 'Ready-to-run ComfyUI workflows. Open one on RunningHub, add your images or lyrics, and run it in the cloud.',
+      items: [
+        // Example (remove the two slashes at the start of each line to use it):
+        // { title: 'Song and Score', url: 'https://www.runninghub.ai/...', text: 'Lyrics in, a full song and its sheet music out.', tags: ['Music', 'YuE2'] },
+      ]
+    },
+    {
+      id: 'videos',
+      title: 'YouTube videos',
+      blurb: 'Stories, music videos and experiments from the Dang channel.',
+      items: [
+        // Example: { title: 'Video title', youtube: 'VIDEO_ID', text: 'One line about it.', date: '2026-09-26' },
+      ]
+    }
+  ]
+};
+</script>
+<style>
+:root{
+  --bg:#EEF0F3; --surface:#FFFFFF; --ink:#12151A; --muted:#58606B; --line:#D6DAE0;
+  --red:#D1242F; --red-ink:#FFFFFF; --chip:#E6E9EE; --shadow:0 1px 2px rgba(18,21,26,.06),0 6px 18px rgba(18,21,26,.06);
+  --display:"Big Shoulders Display","Arial Narrow",Impact,system-ui,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F1216; --surface:#181C22; --ink:#ECEEF1; --muted:#9AA3AE; --line:#2A3038;
+    --red:#FF4B55; --red-ink:#12151A; --chip:#232830; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1216; --surface:#181C22; --ink:#ECEEF1; --muted:#9AA3AE; --line:#2A3038;
+  --red:#FF4B55; --red-ink:#12151A; --chip:#232830; --shadow:none;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
+header.top{padding-block:40px 24px;display:flex;flex-direction:column;gap:14px;border-bottom:3px solid var(--red)}
+.mark{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:.01em;line-height:.86;font-size:clamp(56px,11vw,120px);margin:0;text-wrap:balance}
+.mark .bang{color:var(--red)}
+.mark small{display:block;font-weight:700;font-size:.42em;letter-spacing:.14em;color:var(--muted);margin-top:.35em}
+.tag{margin:0;font-size:18px;color:var(--muted);max-width:52ch}
+.toprow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;padding:9px 14px;border-radius:6px;background:var(--red);color:var(--red-ink)}
+.btn:hover{filter:brightness(1.08)}
+nav.jump{display:flex;flex-wrap:wrap;gap:6px}
+nav.jump a{text-decoration:none;font-weight:600;font-size:13px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+nav.jump a:hover{border-color:var(--ink)}
+nav.jump .n{color:var(--muted);font-variant-numeric:tabular-nums;margin-left:4px}
+section.sec{padding-top:36px;display:flex;flex-direction:column;gap:14px;scroll-margin-top:12px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:34px;line-height:1;margin:0;letter-spacing:.01em}
+.sechead p{margin:0;color:var(--muted);max-width:65ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,border-color .15s ease}
+.card:hover{transform:translateY(-2px);border-color:var(--ink)}
+.card:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.thumb{aspect-ratio:16/9;background:var(--chip) center/cover no-repeat;position:relative}
+.thumb::after{content:"";position:absolute;left:50%;top:50%;width:54px;height:38px;margin:-19px 0 0 -27px;border-radius:9px;background:rgba(209,36,47,.92)}
+.thumb::before{content:"";position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:15px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:1}
+.cbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ctitle{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-weight:700;font-size:17px;line-height:1.25}
+.ctitle .go{color:var(--red);flex:none;font-weight:700}
+.ctext{margin:0;color:var(--muted);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.chip{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;background:var(--chip);color:var(--muted)}
+.host{font-size:12px;color:var(--muted)}
+.soon{border:1px dashed var(--line);border-radius:8px;padding:18px 16px;color:var(--muted)}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between}
+@media (prefers-reduced-motion: reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1 class="mark" id="mark">Dang<small>Publishing</small></h1>
+    <p class="tag" id="tagline"></p>
+    <div class="toprow">
+      <a class="btn" id="channel" href="#" target="_blank" rel="noopener" hidden>▶ <span id="channel-label"></span></a>
+      <nav class="jump" id="jump" aria-label="Sections"></nav>
+    </div>
+  </header>
+  <main id="sections"></main>
+  <footer>
+    <span id="foot-name"></span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const S = window.SITE || { sections: [] };
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
+
+  document.title = S.name || 'Dang Publishing';
+  document.getElementById('tagline').textContent = S.tagline || '';
+  document.getElementById('foot-name').textContent = '© ' + new Date().getFullYear() + ' ' + (S.name || 'Dang Publishing');
+  if (S.channel && S.channel.url) {
+    const c = document.getElementById('channel'); c.href = S.channel.url; c.hidden = false;
+    document.getElementById('channel-label').textContent = S.channel.label || 'YouTube';
+  }
+
+  const jump = document.getElementById('jump'), main = document.getElementById('sections');
+  for (const sec of S.sections || []) {
+    const items = (sec.items || []).filter(i => i && i.title && (i.url || i.youtube));
+    items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    const id = sec.id || sec.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+    const j = el('a', null, sec.title); j.href = '#' + id;
+    j.appendChild(el('span', 'n', items.length ? String(items.length) : 'soon'));
+    jump.appendChild(j);
+
+    const s = el('section', 'sec'); s.id = id;
+    const h = el('div', 'sechead'); h.appendChild(el('h2', null, sec.title));
+    if (sec.blurb) h.appendChild(el('p', null, sec.blurb));
+    s.appendChild(h);
+
+    if (!items.length) { s.appendChild(el('div', 'soon', 'Coming soon.')); main.appendChild(s); continue; }
+
+    const g = el('div', 'grid');
+    for (const it of items) {
+      const url = it.url || ('https://www.youtube.com/watch?v=' + encodeURIComponent(it.youtube));
+      const a = el('a', 'card'); a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      if (it.youtube) {
+        const t = el('div', 'thumb');
+        t.style.backgroundImage = `url("https://i.ytimg.com/vi/${encodeURIComponent(it.youtube)}/hqdefault.jpg")`;
+        a.appendChild(t);
+      }
+      const b = el('div', 'cbody');
+      const ti = el('div', 'ctitle'); ti.appendChild(el('span', null, it.title)); ti.appendChild(el('span', 'go', '↗'));
+      b.appendChild(ti);
+      if (it.text) b.appendChild(el('p', 'ctext', it.text));
+      const chips = el('div', 'chips');
+      for (const tg of it.tags || []) chips.appendChild(el('span', 'chip', tg));
+      const hn = host(url); if (hn) chips.appendChild(el('span', 'host', hn));
+      b.appendChild(chips);
+      a.appendChild(b); g.appendChild(a);
+    }
+    s.appendChild(g); main.appendChild(s);
+  }
+})();
+</script>
+
+</body>
+</html>
