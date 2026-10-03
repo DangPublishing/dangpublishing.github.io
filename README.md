@@ -25,6 +25,7 @@ Item fields:
 | `tags` | Small labels, e.g. `['Music', 'Free']` |
 | `youtube` | For a YouTube video: the ID after `watch?v=`. The card shows its thumbnail. |
 | `date` | Optional, e.g. `'2026-09-26'`. Newer items sort first. |
+| `image` | Optional picture for the top of the card, e.g. `'images/my-picture.jpg'`. Upload it to the `images` folder first; wide 16:9 fits best. |
 
 A new section is another `{ id: ..., title: ..., blurb: ..., items: [ ] }` block.
 An empty section shows "Coming soon."
