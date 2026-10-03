@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Dang Publishing: AI films, music and the free tools behind them.">
 <title>Dang Publishing</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta property="og:title" content="Dang Publishing">
+<meta property="og:description" content="AI films, music and the free tools behind them.">
+<meta property="og:image" content="https://dangpublishing.github.io/images/OnceUponATime.jpg">
+<meta property="og:url" content="https://dangpublishing.github.io/">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
@@ -98,6 +105,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font
 a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
 header.top{padding-block:40px 24px;display:flex;flex-direction:column;gap:14px;border-bottom:3px solid var(--red)}
+.brand{display:flex;align-items:center;gap:clamp(14px,3vw,28px)}
+.avatar{flex:none;width:clamp(84px,16vw,148px);height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid var(--red);box-shadow:var(--shadow);background:var(--chip)}
 .mark{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:.01em;line-height:.86;font-size:clamp(56px,11vw,120px);margin:0;text-wrap:balance}
 .mark .bang{color:var(--red)}
 .mark small{display:block;font-weight:700;font-size:.42em;letter-spacing:.14em;color:var(--muted);margin-top:.35em}
@@ -136,7 +145,10 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 <body>
 <div class="wrap">
   <header class="top">
-    <h1 class="mark" id="mark">Dang<small>Publishing</small></h1>
+    <div class="brand">
+      <img class="avatar" src="images/OnceUponATime.jpg" width="512" height="512" alt="Dang Publishing logo: a black dog reading a book">
+      <h1 class="mark" id="mark">Dang<small>Publishing</small></h1>
+    </div>
     <p class="tag" id="tagline"></p>
     <div class="toprow">
       <a class="btn" id="channel" href="#" target="_blank" rel="noopener" hidden>▶ <span id="channel-label"></span></a>
