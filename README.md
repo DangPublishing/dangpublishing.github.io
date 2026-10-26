@@ -35,4 +35,5 @@ To show the YouTube channel button, put the channel link in `channel: { url: '' 
 ## Other pages on this site
 
 - Clip Compare: https://dangpublishing.github.io/video-compare/
+- Clip Recipe:  https://dangpublishing.github.io/clip-recipe/
 - ABC Score Viewer: https://dangpublishing.github.io/abc-viewer/
